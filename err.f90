@@ -1,9 +1,9 @@
 module err
+    use help
     implicit none
 contains
     subroutine noarg
-    implicit none
-        write(*,'(A)') 'Argument not valid!'
-        stop
+        write(*,'(A,/)') 'Argument not valid!'
+        call helpdoc
     end subroutine noarg
 end module err

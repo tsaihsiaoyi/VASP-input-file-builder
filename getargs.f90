@@ -25,6 +25,12 @@ contains
                 case('-t')
                     call get_file(i+1,pot)
                     jump=.true.
+                case('-h')
+                    if (i==1) then
+                        call helpdoc
+                    else
+                        call noarg
+                    end if
                 case default
                     call noarg
                 end select
@@ -43,7 +49,7 @@ contains
             allocate(character(len)::str)
             call get_command_argument(number=n,value=str)
             select case(str)
-            case('-t','-s')
+            case('-t','-s','-h')
                 call noarg
             end select
         end if

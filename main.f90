@@ -1,9 +1,9 @@
 program main
     use getargs
+    use getfile
     implicit none
     character(:),allocatable::pos,pot
     call get_args(pos,pot)
-    print*,'end'
     if (.not.allocated(pos)) then
         allocate(character(8)::pos)
         pos='./POSCAR'
@@ -14,4 +14,5 @@ program main
     end if
     print*,pot
     print*,pos
+    call getelement(pos)
 end program main
